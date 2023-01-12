@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class CameraJogador : MonoBehaviour
 {
+    public FixedJoystick joystickDireito;
     public float rotacao = 90.0f;
-    void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
 
     void Update()
     {
@@ -21,7 +17,7 @@ public class CameraJogador : MonoBehaviour
         bool travaDecida = false;
         bool travaSubida = false;
         bool movimenta = true;
-        float mouseY = Input.GetAxis("Mouse Y");
+        float mouseY = joystickDireito.Vertical;
 
         if (rotacaoX >= 0 && rotacaoX <= 90) {
             if (mouseY * -1 + rotacaoX >= 75) {
